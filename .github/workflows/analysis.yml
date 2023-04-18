@@ -10,12 +10,13 @@ on:
   workflow_dispatch:
 
 env:
-  DBT_PROFILES_DIR: ${{ github.workspace }}
-  RE_DATA_CONFIG_DIR: ${{ github.workspace }}
-  RE_DATA_SEND_ANONYMOUS_USAGE_STATS: 0
-  RE_CLOUD_API_KEY: ${{ secrets.RE_CLOUD_API_KEY }}
-  SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-  SNOWFLAKE_DBT_PASSWORD: ${{ secrets.SNOWFLAKE_DBT_PASSWORD }}
+      account: ${{ Secrets.DBT_SNOWSQL_ACCOUNT }}
+      database: ${{ Secrets.DBT_SNOWSQL_DATABASE }}
+      password: ${{ Secrets.DBT_SNOWSQL_PWD }}
+      role: ${{ Secrets.DBT_SNOWSQL_ROLE }}
+      schema: ${{ Secrets.DBT_SNOWSQL_SCHEMA }}
+      user: ${{ Secrets.DBT_SNOWSQL_USER }}
+      warehouse: ${{ Secrets.DBT_SNOWSQL_WAREHOUSE }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
